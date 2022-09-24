@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+@Styles.Render("~/Content/css")
+@Scripts.Render("~/bundles/modernizr")
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="~/Content/StyleLogin.css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script>
+    window.setTimeout(function () {
+        $(".alert").fadeTo(500, 0).slideUp(500, function () {
+            $(this).remove();
+        });
+    }, 5000);
+
+
+</script>
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+
+<div class="container text-center">
+    @if (ViewBag.Error == "Usuario o contraseña invalida")
+    {
+        <br />
+        <div id="alertl" class="alert alert-danger" role="alert">
+            Usuario o contraseña invalida
+        </div>
+    }
+    <div class="row">
+        <div class="col-sm-12 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Sign in to continue to CISI</h1>
+            <div class="account-wall">
+                <img class="profile-img" src="~/image/login/cliente.png"
+                     alt="">
+                <form class="form-signin" id="flog" method="post">
+                    <input id="usser" name="user" type="text" class="form-control" placeholder="Email" required autofocus>
+                    <input id="pass" name="pass" type="password" class="form-control" placeholder="Password" required>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit" id="btnlog">
+                        Sign in
+                    </button>
+
+                    <label class="checkbox pull-left">
+                        <input type="checkbox" value="remember-me">
+                        Remember me
+                    </label>
+                    <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+
