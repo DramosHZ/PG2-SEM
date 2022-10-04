@@ -151,11 +151,50 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AccesoSeguridad.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\AtencionRequerimiento.cs">
+      <DependentUpon>PRDR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DOCUMENTOS.cs">
+      <DependentUpon>PRDR.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Modulo.cs">
       <DependentUpon>AccesoSeguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Operaciones.cs">
       <DependentUpon>AccesoSeguridad.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\POLandRIESGOS.cs">
+      <DependentUpon>PRDR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\POLITICAS.cs">
+      <DependentUpon>PRDR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRDR.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PRDR.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRDR.cs">
+      <DependentUpon>PRDR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRDR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PRDR.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PRDR1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PRDR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\REQandDOC.cs">
+      <DependentUpon>PRDR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\REQUERIMIENTOS.cs">
+      <DependentUpon>PRDR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RIESGOS.cs">
+      <DependentUpon>PRDR.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Rol.cs">
       <DependentUpon>AccesoSeguridad.tt</DependentUpon>
@@ -163,8 +202,14 @@
     <Compile Include="Models\RolOperacion.cs">
       <DependentUpon>AccesoSeguridad.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>PRDR.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>PRDR.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>AccesoSeguridad.tt</DependentUpon>
+      <DependentUpon>PRDR.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs">
       <DependentUpon>AccesoSeguridad.tt</DependentUpon>
@@ -193,6 +238,16 @@
       <DependentUpon>AccesoSeguridad.edmx</DependentUpon>
       <LastGenOutput>AccesoSeguridad.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\PRDR.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PRDR.edmx</DependentUpon>
+      <LastGenOutput>PRDR.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\PRDR.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>PRDR.edmx</DependentUpon>
+      <LastGenOutput>PRDR1.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\AccesoSeguridad.edmx">
@@ -201,6 +256,13 @@
     </EntityDeploy>
     <Content Include="Models\AccesoSeguridad.edmx.diagram">
       <DependentUpon>AccesoSeguridad.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\PRDR.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>PRDR.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\PRDR.edmx.diagram">
+      <DependentUpon>PRDR.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />

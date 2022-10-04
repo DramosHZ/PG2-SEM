@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ef2e9cb0ab7a40b0b85c2618d0f4984a" Name="Diagram1">
+        <EntityTypeShape EntityType="PROandDOCModel.AtencionRequerimiento" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROandDOCModel.DOCUMENTOS" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROandDOCModel.POLandRIESGOS" Width="1.5" PointX="3.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROandDOCModel.POLITICAS" Width="1.5" PointX="1.5" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROandDOCModel.PRDR" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROandDOCModel.REQandDOC" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROandDOCModel.REQUERIMIENTOS" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROandDOCModel.RIESGOS" Width="1.5" PointX="1.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROandDOCModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="PROandDOCModel.FK_AtencionRequerimiento_REQUERIMIENTOS" ManuallyRouted="false" />
+        <AssociationConnector Association="PROandDOCModel.FK_REQandDOC_DOCUMENTOS1" ManuallyRouted="false" />
+        <AssociationConnector Association="PROandDOCModel.FK_POLandRIESGOS_POLITICAS" ManuallyRouted="false" />
+        <AssociationConnector Association="PROandDOCModel.FK_POLandRIESGOS_RIESGOS" ManuallyRouted="false" />
+        <AssociationConnector Association="PROandDOCModel.FK_PRDR_POLandRIESGOS" ManuallyRouted="false" />
+        <AssociationConnector Association="PROandDOCModel.FK_PRDR_REQandDOC" ManuallyRouted="false" />
+        <AssociationConnector Association="PROandDOCModel.FK_PRDR_REQUERIMIENTOS" ManuallyRouted="false" />
+        <AssociationConnector Association="PROandDOCModel.FK_REQandDOC_REQUERIMIENTOS" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,765 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PROandDOCModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AtencionRequerimiento">
+          <Key>
+            <PropertyRef Name="Id_Atencion" />
+          </Key>
+          <Property Name="Id_Atencion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Requerimiento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion_Requerimiento" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Fecha_Requirimiento" Type="date" Nullable="false" />
+          <Property Name="Estatus" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Colaborador_Atiende" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Encargado_Requerimiento" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Solicitante_Requerimiento" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Dependencia_SN" Type="tinyint" Nullable="false" />
+          <Property Name="Motivo_Dependencia" Type="varchar" MaxLength="100" />
+          <Property Name="Id_Requerimiento" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DOCUMENTOS">
+          <Key>
+            <PropertyRef Name="Id_Documento" />
+          </Key>
+          <Property Name="Id_Documento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Documento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion_Documento" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Path_Documento" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="Area_Solicitante" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Colaborador_Solicitante" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fecha_Documento" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="POLandRIESGOS">
+          <Key>
+            <PropertyRef Name="Id_Hallazgos" />
+          </Key>
+          <Property Name="Id_Hallazgos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Hallazgo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion_Hallazgo" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Fecha_Hallazgo" Type="date" Nullable="false" />
+          <Property Name="Id_Politica" Type="int" Nullable="false" />
+          <Property Name="Id_Riesgo" Type="int" Nullable="false" />
+          <Property Name="Path_Hallazgo" Type="varbinary" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="POLITICAS">
+          <Key>
+            <PropertyRef Name="Id_Politica" />
+          </Key>
+          <Property Name="Id_Politica" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Politica" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion_Politica" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Funcion_Politica" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Categoria_Politica" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubCategoria_Politica" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Referencia_Politica" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Path_Politica" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PRDR">
+          <Key>
+            <PropertyRef Name="Id_PRDR" />
+          </Key>
+          <Property Name="Id_PRDR" Type="int" Nullable="false" />
+          <Property Name="Nombre_Requirimiento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre_Documento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre_Hallazgo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Id_Hallazgo" Type="int" Nullable="false" />
+          <Property Name="Id_Proyecto" Type="int" Nullable="false" />
+          <Property Name="Id_Requerimiento" Type="int" Nullable="false" />
+          <Property Name="Path_Documento" Type="varchar" MaxLength="500" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REQandDOC">
+          <Key>
+            <PropertyRef Name="Id_Proyecto" />
+          </Key>
+          <Property Name="Id_Proyecto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_Requerimiento" Type="int" Nullable="false" />
+          <Property Name="Id_Documento" Type="int" Nullable="false" />
+          <Property Name="Nombre_Requerimiento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nombre_Documento" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REQUERIMIENTOS">
+          <Key>
+            <PropertyRef Name="Id_Requerimiento" />
+          </Key>
+          <Property Name="Id_Requerimiento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Requerimiento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Descripcion_Requerimiento" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Area_Requerimiento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Fecha_Requerimiento" Type="date" />
+        </EntityType>
+        <EntityType Name="RIESGOS">
+          <Key>
+            <PropertyRef Name="Id_Riesgo" />
+          </Key>
+          <Property Name="Id_Riesgo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre_Riesgo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tipo_Riesgo" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Nivel_Riesgo" Type="int" Nullable="false" />
+          <Property Name="Descripcion_Riesgo" Type="varchar" MaxLength="150" Nullable="false" />
+          <Property Name="Categoria_Riesgo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SubCategoria_Riesgo" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_AtencionRequerimiento_REQUERIMIENTOS">
+          <End Role="REQUERIMIENTOS" Type="Self.REQUERIMIENTOS" Multiplicity="1" />
+          <End Role="AtencionRequerimiento" Type="Self.AtencionRequerimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REQUERIMIENTOS">
+              <PropertyRef Name="Id_Requerimiento" />
+            </Principal>
+            <Dependent Role="AtencionRequerimiento">
+              <PropertyRef Name="Id_Requerimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POLandRIESGOS_POLITICAS">
+          <End Role="POLITICAS" Type="Self.POLITICAS" Multiplicity="1" />
+          <End Role="POLandRIESGOS" Type="Self.POLandRIESGOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POLITICAS">
+              <PropertyRef Name="Id_Politica" />
+            </Principal>
+            <Dependent Role="POLandRIESGOS">
+              <PropertyRef Name="Id_Politica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POLandRIESGOS_RIESGOS">
+          <End Role="RIESGOS" Type="Self.RIESGOS" Multiplicity="1" />
+          <End Role="POLandRIESGOS" Type="Self.POLandRIESGOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RIESGOS">
+              <PropertyRef Name="Id_Riesgo" />
+            </Principal>
+            <Dependent Role="POLandRIESGOS">
+              <PropertyRef Name="Id_Riesgo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRDR_POLandRIESGOS">
+          <End Role="POLandRIESGOS" Type="Self.POLandRIESGOS" Multiplicity="1" />
+          <End Role="PRDR" Type="Self.PRDR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POLandRIESGOS">
+              <PropertyRef Name="Id_Hallazgos" />
+            </Principal>
+            <Dependent Role="PRDR">
+              <PropertyRef Name="Id_Hallazgo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRDR_REQandDOC">
+          <End Role="REQandDOC" Type="Self.REQandDOC" Multiplicity="1" />
+          <End Role="PRDR" Type="Self.PRDR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REQandDOC">
+              <PropertyRef Name="Id_Proyecto" />
+            </Principal>
+            <Dependent Role="PRDR">
+              <PropertyRef Name="Id_Proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRDR_REQUERIMIENTOS">
+          <End Role="REQUERIMIENTOS" Type="Self.REQUERIMIENTOS" Multiplicity="1" />
+          <End Role="PRDR" Type="Self.PRDR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REQUERIMIENTOS">
+              <PropertyRef Name="Id_Requerimiento" />
+            </Principal>
+            <Dependent Role="PRDR">
+              <PropertyRef Name="Id_Requerimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REQandDOC_DOCUMENTOS1">
+          <End Role="DOCUMENTOS" Type="Self.DOCUMENTOS" Multiplicity="1" />
+          <End Role="REQandDOC" Type="Self.REQandDOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENTOS">
+              <PropertyRef Name="Id_Documento" />
+            </Principal>
+            <Dependent Role="REQandDOC">
+              <PropertyRef Name="Id_Documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REQandDOC_REQUERIMIENTOS">
+          <End Role="REQUERIMIENTOS" Type="Self.REQUERIMIENTOS" Multiplicity="1" />
+          <End Role="REQandDOC" Type="Self.REQandDOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REQUERIMIENTOS">
+              <PropertyRef Name="Id_Requerimiento" />
+            </Principal>
+            <Dependent Role="REQandDOC">
+              <PropertyRef Name="Id_Requerimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <EntityContainer Name="PROandDOCModelStoreContainer">
+          <EntitySet Name="AtencionRequerimiento" EntityType="Self.AtencionRequerimiento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DOCUMENTOS" EntityType="Self.DOCUMENTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POLandRIESGOS" EntityType="Self.POLandRIESGOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="POLITICAS" EntityType="Self.POLITICAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PRDR" EntityType="Self.PRDR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REQandDOC" EntityType="Self.REQandDOC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="REQUERIMIENTOS" EntityType="Self.REQUERIMIENTOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RIESGOS" EntityType="Self.RIESGOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AtencionRequerimiento_REQUERIMIENTOS" Association="Self.FK_AtencionRequerimiento_REQUERIMIENTOS">
+            <End Role="REQUERIMIENTOS" EntitySet="REQUERIMIENTOS" />
+            <End Role="AtencionRequerimiento" EntitySet="AtencionRequerimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POLandRIESGOS_POLITICAS" Association="Self.FK_POLandRIESGOS_POLITICAS">
+            <End Role="POLITICAS" EntitySet="POLITICAS" />
+            <End Role="POLandRIESGOS" EntitySet="POLandRIESGOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POLandRIESGOS_RIESGOS" Association="Self.FK_POLandRIESGOS_RIESGOS">
+            <End Role="RIESGOS" EntitySet="RIESGOS" />
+            <End Role="POLandRIESGOS" EntitySet="POLandRIESGOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRDR_POLandRIESGOS" Association="Self.FK_PRDR_POLandRIESGOS">
+            <End Role="POLandRIESGOS" EntitySet="POLandRIESGOS" />
+            <End Role="PRDR" EntitySet="PRDR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRDR_REQandDOC" Association="Self.FK_PRDR_REQandDOC">
+            <End Role="REQandDOC" EntitySet="REQandDOC" />
+            <End Role="PRDR" EntitySet="PRDR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRDR_REQUERIMIENTOS" Association="Self.FK_PRDR_REQUERIMIENTOS">
+            <End Role="REQUERIMIENTOS" EntitySet="REQUERIMIENTOS" />
+            <End Role="PRDR" EntitySet="PRDR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REQandDOC_DOCUMENTOS1" Association="Self.FK_REQandDOC_DOCUMENTOS1">
+            <End Role="DOCUMENTOS" EntitySet="DOCUMENTOS" />
+            <End Role="REQandDOC" EntitySet="REQandDOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REQandDOC_REQUERIMIENTOS" Association="Self.FK_REQandDOC_REQUERIMIENTOS">
+            <End Role="REQUERIMIENTOS" EntitySet="REQUERIMIENTOS" />
+            <End Role="REQandDOC" EntitySet="REQandDOC" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PROandDOCModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AtencionRequerimiento">
+          <Key>
+            <PropertyRef Name="Id_Atencion" />
+          </Key>
+          <Property Name="Id_Atencion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Requerimiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion_Requerimiento" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_Requirimiento" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Estatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Colaborador_Atiende" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Encargado_Requerimiento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Solicitante_Requerimiento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Dependencia_SN" Type="Byte" Nullable="false" />
+          <Property Name="Motivo_Dependencia" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Id_Requerimiento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="REQUERIMIENTOS" Relationship="Self.FK_AtencionRequerimiento_REQUERIMIENTOS" FromRole="AtencionRequerimiento" ToRole="REQUERIMIENTOS" />
+        </EntityType>
+        <EntityType Name="DOCUMENTOS">
+          <Key>
+            <PropertyRef Name="Id_Documento" />
+          </Key>
+          <Property Name="Id_Documento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion_Documento" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Path_Documento" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Area_Solicitante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Colaborador_Solicitante" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_Documento" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="REQandDOC" Relationship="Self.FK_REQandDOC_DOCUMENTOS1" FromRole="DOCUMENTOS" ToRole="REQandDOC" />
+        </EntityType>
+        <EntityType Name="POLandRIESGOS">
+          <Key>
+            <PropertyRef Name="Id_Hallazgos" />
+          </Key>
+          <Property Name="Id_Hallazgos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Hallazgo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion_Hallazgo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_Hallazgo" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Id_Politica" Type="Int32" Nullable="false" />
+          <Property Name="Id_Riesgo" Type="Int32" Nullable="false" />
+          <Property Name="Path_Hallazgo" Type="Binary" MaxLength="500" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="POLITICAS" Relationship="Self.FK_POLandRIESGOS_POLITICAS" FromRole="POLandRIESGOS" ToRole="POLITICAS" />
+          <NavigationProperty Name="RIESGOS" Relationship="Self.FK_POLandRIESGOS_RIESGOS" FromRole="POLandRIESGOS" ToRole="RIESGOS" />
+          <NavigationProperty Name="PRDR" Relationship="Self.FK_PRDR_POLandRIESGOS" FromRole="POLandRIESGOS" ToRole="PRDR" />
+        </EntityType>
+        <EntityType Name="POLITICAS">
+          <Key>
+            <PropertyRef Name="Id_Politica" />
+          </Key>
+          <Property Name="Id_Politica" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Politica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion_Politica" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Funcion_Politica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Categoria_Politica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SubCategoria_Politica" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Referencia_Politica" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Path_Politica" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="POLandRIESGOS" Relationship="Self.FK_POLandRIESGOS_POLITICAS" FromRole="POLITICAS" ToRole="POLandRIESGOS" />
+        </EntityType>
+        <EntityType Name="PRDR">
+          <Key>
+            <PropertyRef Name="Id_PRDR" />
+          </Key>
+          <Property Name="Id_PRDR" Type="Int32" Nullable="false" />
+          <Property Name="Nombre_Requirimiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre_Documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre_Hallazgo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id_Hallazgo" Type="Int32" Nullable="false" />
+          <Property Name="Id_Proyecto" Type="Int32" Nullable="false" />
+          <Property Name="Id_Requerimiento" Type="Int32" Nullable="false" />
+          <Property Name="Path_Documento" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="POLandRIESGOS" Relationship="Self.FK_PRDR_POLandRIESGOS" FromRole="PRDR" ToRole="POLandRIESGOS" />
+          <NavigationProperty Name="REQandDOC" Relationship="Self.FK_PRDR_REQandDOC" FromRole="PRDR" ToRole="REQandDOC" />
+          <NavigationProperty Name="REQUERIMIENTOS" Relationship="Self.FK_PRDR_REQUERIMIENTOS" FromRole="PRDR" ToRole="REQUERIMIENTOS" />
+        </EntityType>
+        <EntityType Name="REQandDOC">
+          <Key>
+            <PropertyRef Name="Id_Proyecto" />
+          </Key>
+          <Property Name="Id_Proyecto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_Requerimiento" Type="Int32" Nullable="false" />
+          <Property Name="Id_Documento" Type="Int32" Nullable="false" />
+          <Property Name="Nombre_Requerimiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombre_Documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="DOCUMENTOS" Relationship="Self.FK_REQandDOC_DOCUMENTOS1" FromRole="REQandDOC" ToRole="DOCUMENTOS" />
+          <NavigationProperty Name="PRDR" Relationship="Self.FK_PRDR_REQandDOC" FromRole="REQandDOC" ToRole="PRDR" />
+          <NavigationProperty Name="REQUERIMIENTOS" Relationship="Self.FK_REQandDOC_REQUERIMIENTOS" FromRole="REQandDOC" ToRole="REQUERIMIENTOS" />
+        </EntityType>
+        <EntityType Name="REQUERIMIENTOS">
+          <Key>
+            <PropertyRef Name="Id_Requerimiento" />
+          </Key>
+          <Property Name="Id_Requerimiento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Requerimiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion_Requerimiento" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Area_Requerimiento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Fecha_Requerimiento" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="AtencionRequerimiento" Relationship="Self.FK_AtencionRequerimiento_REQUERIMIENTOS" FromRole="REQUERIMIENTOS" ToRole="AtencionRequerimiento" />
+          <NavigationProperty Name="PRDR" Relationship="Self.FK_PRDR_REQUERIMIENTOS" FromRole="REQUERIMIENTOS" ToRole="PRDR" />
+          <NavigationProperty Name="REQandDOC" Relationship="Self.FK_REQandDOC_REQUERIMIENTOS" FromRole="REQUERIMIENTOS" ToRole="REQandDOC" />
+        </EntityType>
+        <EntityType Name="RIESGOS">
+          <Key>
+            <PropertyRef Name="Id_Riesgo" />
+          </Key>
+          <Property Name="Id_Riesgo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre_Riesgo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tipo_Riesgo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nivel_Riesgo" Type="Int32" Nullable="false" />
+          <Property Name="Descripcion_Riesgo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Categoria_Riesgo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SubCategoria_Riesgo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="POLandRIESGOS" Relationship="Self.FK_POLandRIESGOS_RIESGOS" FromRole="RIESGOS" ToRole="POLandRIESGOS" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_AtencionRequerimiento_REQUERIMIENTOS">
+          <End Role="REQUERIMIENTOS" Type="Self.REQUERIMIENTOS" Multiplicity="1" />
+          <End Role="AtencionRequerimiento" Type="Self.AtencionRequerimiento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REQUERIMIENTOS">
+              <PropertyRef Name="Id_Requerimiento" />
+            </Principal>
+            <Dependent Role="AtencionRequerimiento">
+              <PropertyRef Name="Id_Requerimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REQandDOC_DOCUMENTOS1">
+          <End Role="DOCUMENTOS" Type="Self.DOCUMENTOS" Multiplicity="1" />
+          <End Role="REQandDOC" Type="Self.REQandDOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DOCUMENTOS">
+              <PropertyRef Name="Id_Documento" />
+            </Principal>
+            <Dependent Role="REQandDOC">
+              <PropertyRef Name="Id_Documento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POLandRIESGOS_POLITICAS">
+          <End Role="POLITICAS" Type="Self.POLITICAS" Multiplicity="1" />
+          <End Role="POLandRIESGOS" Type="Self.POLandRIESGOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POLITICAS">
+              <PropertyRef Name="Id_Politica" />
+            </Principal>
+            <Dependent Role="POLandRIESGOS">
+              <PropertyRef Name="Id_Politica" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_POLandRIESGOS_RIESGOS">
+          <End Role="RIESGOS" Type="Self.RIESGOS" Multiplicity="1" />
+          <End Role="POLandRIESGOS" Type="Self.POLandRIESGOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RIESGOS">
+              <PropertyRef Name="Id_Riesgo" />
+            </Principal>
+            <Dependent Role="POLandRIESGOS">
+              <PropertyRef Name="Id_Riesgo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRDR_POLandRIESGOS">
+          <End Role="POLandRIESGOS" Type="Self.POLandRIESGOS" Multiplicity="1" />
+          <End Role="PRDR" Type="Self.PRDR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POLandRIESGOS">
+              <PropertyRef Name="Id_Hallazgos" />
+            </Principal>
+            <Dependent Role="PRDR">
+              <PropertyRef Name="Id_Hallazgo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRDR_REQandDOC">
+          <End Role="REQandDOC" Type="Self.REQandDOC" Multiplicity="1" />
+          <End Role="PRDR" Type="Self.PRDR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REQandDOC">
+              <PropertyRef Name="Id_Proyecto" />
+            </Principal>
+            <Dependent Role="PRDR">
+              <PropertyRef Name="Id_Proyecto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PRDR_REQUERIMIENTOS">
+          <End Role="REQUERIMIENTOS" Type="Self.REQUERIMIENTOS" Multiplicity="1" />
+          <End Role="PRDR" Type="Self.PRDR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REQUERIMIENTOS">
+              <PropertyRef Name="Id_Requerimiento" />
+            </Principal>
+            <Dependent Role="PRDR">
+              <PropertyRef Name="Id_Requerimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_REQandDOC_REQUERIMIENTOS">
+          <End Role="REQUERIMIENTOS" Type="Self.REQUERIMIENTOS" Multiplicity="1" />
+          <End Role="REQandDOC" Type="Self.REQandDOC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="REQUERIMIENTOS">
+              <PropertyRef Name="Id_Requerimiento" />
+            </Principal>
+            <Dependent Role="REQandDOC">
+              <PropertyRef Name="Id_Requerimiento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PROandDOCEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AtencionRequerimiento" EntityType="Self.AtencionRequerimiento" />
+          <EntitySet Name="DOCUMENTOS" EntityType="Self.DOCUMENTOS" />
+          <EntitySet Name="POLandRIESGOS" EntityType="Self.POLandRIESGOS" />
+          <EntitySet Name="POLITICAS" EntityType="Self.POLITICAS" />
+          <EntitySet Name="PRDR" EntityType="Self.PRDR" />
+          <EntitySet Name="REQandDOC" EntityType="Self.REQandDOC" />
+          <EntitySet Name="REQUERIMIENTOS" EntityType="Self.REQUERIMIENTOS" />
+          <EntitySet Name="RIESGOS" EntityType="Self.RIESGOS" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <AssociationSet Name="FK_AtencionRequerimiento_REQUERIMIENTOS" Association="Self.FK_AtencionRequerimiento_REQUERIMIENTOS">
+            <End Role="REQUERIMIENTOS" EntitySet="REQUERIMIENTOS" />
+            <End Role="AtencionRequerimiento" EntitySet="AtencionRequerimiento" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REQandDOC_DOCUMENTOS1" Association="Self.FK_REQandDOC_DOCUMENTOS1">
+            <End Role="DOCUMENTOS" EntitySet="DOCUMENTOS" />
+            <End Role="REQandDOC" EntitySet="REQandDOC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POLandRIESGOS_POLITICAS" Association="Self.FK_POLandRIESGOS_POLITICAS">
+            <End Role="POLITICAS" EntitySet="POLITICAS" />
+            <End Role="POLandRIESGOS" EntitySet="POLandRIESGOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_POLandRIESGOS_RIESGOS" Association="Self.FK_POLandRIESGOS_RIESGOS">
+            <End Role="RIESGOS" EntitySet="RIESGOS" />
+            <End Role="POLandRIESGOS" EntitySet="POLandRIESGOS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRDR_POLandRIESGOS" Association="Self.FK_PRDR_POLandRIESGOS">
+            <End Role="POLandRIESGOS" EntitySet="POLandRIESGOS" />
+            <End Role="PRDR" EntitySet="PRDR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRDR_REQandDOC" Association="Self.FK_PRDR_REQandDOC">
+            <End Role="REQandDOC" EntitySet="REQandDOC" />
+            <End Role="PRDR" EntitySet="PRDR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PRDR_REQUERIMIENTOS" Association="Self.FK_PRDR_REQUERIMIENTOS">
+            <End Role="REQUERIMIENTOS" EntitySet="REQUERIMIENTOS" />
+            <End Role="PRDR" EntitySet="PRDR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_REQandDOC_REQUERIMIENTOS" Association="Self.FK_REQandDOC_REQUERIMIENTOS">
+            <End Role="REQUERIMIENTOS" EntitySet="REQUERIMIENTOS" />
+            <End Role="REQandDOC" EntitySet="REQandDOC" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(PROandDOCModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(PROandDOCModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+        </EntityContainer>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PROandDOCModelStoreContainer" CdmEntityContainer="PROandDOCEntities">
+          <EntitySetMapping Name="AtencionRequerimiento">
+            <EntityTypeMapping TypeName="PROandDOCModel.AtencionRequerimiento">
+              <MappingFragment StoreEntitySet="AtencionRequerimiento">
+                <ScalarProperty Name="Id_Atencion" ColumnName="Id_Atencion" />
+                <ScalarProperty Name="Nombre_Requerimiento" ColumnName="Nombre_Requerimiento" />
+                <ScalarProperty Name="Descripcion_Requerimiento" ColumnName="Descripcion_Requerimiento" />
+                <ScalarProperty Name="Fecha_Requirimiento" ColumnName="Fecha_Requirimiento" />
+                <ScalarProperty Name="Estatus" ColumnName="Estatus" />
+                <ScalarProperty Name="Colaborador_Atiende" ColumnName="Colaborador_Atiende" />
+                <ScalarProperty Name="Encargado_Requerimiento" ColumnName="Encargado_Requerimiento" />
+                <ScalarProperty Name="Solicitante_Requerimiento" ColumnName="Solicitante_Requerimiento" />
+                <ScalarProperty Name="Dependencia_SN" ColumnName="Dependencia_SN" />
+                <ScalarProperty Name="Motivo_Dependencia" ColumnName="Motivo_Dependencia" />
+                <ScalarProperty Name="Id_Requerimiento" ColumnName="Id_Requerimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DOCUMENTOS">
+            <EntityTypeMapping TypeName="PROandDOCModel.DOCUMENTOS">
+              <MappingFragment StoreEntitySet="DOCUMENTOS">
+                <ScalarProperty Name="Id_Documento" ColumnName="Id_Documento" />
+                <ScalarProperty Name="Nombre_Documento" ColumnName="Nombre_Documento" />
+                <ScalarProperty Name="Descripcion_Documento" ColumnName="Descripcion_Documento" />
+                <ScalarProperty Name="Path_Documento" ColumnName="Path_Documento" />
+                <ScalarProperty Name="Area_Solicitante" ColumnName="Area_Solicitante" />
+                <ScalarProperty Name="Colaborador_Solicitante" ColumnName="Colaborador_Solicitante" />
+                <ScalarProperty Name="Fecha_Documento" ColumnName="Fecha_Documento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POLandRIESGOS">
+            <EntityTypeMapping TypeName="PROandDOCModel.POLandRIESGOS">
+              <MappingFragment StoreEntitySet="POLandRIESGOS">
+                <ScalarProperty Name="Id_Hallazgos" ColumnName="Id_Hallazgos" />
+                <ScalarProperty Name="Nombre_Hallazgo" ColumnName="Nombre_Hallazgo" />
+                <ScalarProperty Name="Descripcion_Hallazgo" ColumnName="Descripcion_Hallazgo" />
+                <ScalarProperty Name="Fecha_Hallazgo" ColumnName="Fecha_Hallazgo" />
+                <ScalarProperty Name="Id_Politica" ColumnName="Id_Politica" />
+                <ScalarProperty Name="Id_Riesgo" ColumnName="Id_Riesgo" />
+                <ScalarProperty Name="Path_Hallazgo" ColumnName="Path_Hallazgo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POLITICAS">
+            <EntityTypeMapping TypeName="PROandDOCModel.POLITICAS">
+              <MappingFragment StoreEntitySet="POLITICAS">
+                <ScalarProperty Name="Id_Politica" ColumnName="Id_Politica" />
+                <ScalarProperty Name="Nombre_Politica" ColumnName="Nombre_Politica" />
+                <ScalarProperty Name="Descripcion_Politica" ColumnName="Descripcion_Politica" />
+                <ScalarProperty Name="Funcion_Politica" ColumnName="Funcion_Politica" />
+                <ScalarProperty Name="Categoria_Politica" ColumnName="Categoria_Politica" />
+                <ScalarProperty Name="SubCategoria_Politica" ColumnName="SubCategoria_Politica" />
+                <ScalarProperty Name="Referencia_Politica" ColumnName="Referencia_Politica" />
+                <ScalarProperty Name="Path_Politica" ColumnName="Path_Politica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRDR">
+            <EntityTypeMapping TypeName="PROandDOCModel.PRDR">
+              <MappingFragment StoreEntitySet="PRDR">
+                <ScalarProperty Name="Id_PRDR" ColumnName="Id_PRDR" />
+                <ScalarProperty Name="Nombre_Requirimiento" ColumnName="Nombre_Requirimiento" />
+                <ScalarProperty Name="Nombre_Documento" ColumnName="Nombre_Documento" />
+                <ScalarProperty Name="Nombre_Hallazgo" ColumnName="Nombre_Hallazgo" />
+                <ScalarProperty Name="Id_Hallazgo" ColumnName="Id_Hallazgo" />
+                <ScalarProperty Name="Id_Proyecto" ColumnName="Id_Proyecto" />
+                <ScalarProperty Name="Id_Requerimiento" ColumnName="Id_Requerimiento" />
+                <ScalarProperty Name="Path_Documento" ColumnName="Path_Documento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REQandDOC">
+            <EntityTypeMapping TypeName="PROandDOCModel.REQandDOC">
+              <MappingFragment StoreEntitySet="REQandDOC">
+                <ScalarProperty Name="Id_Proyecto" ColumnName="Id_Proyecto" />
+                <ScalarProperty Name="Id_Requerimiento" ColumnName="Id_Requerimiento" />
+                <ScalarProperty Name="Id_Documento" ColumnName="Id_Documento" />
+                <ScalarProperty Name="Nombre_Requerimiento" ColumnName="Nombre_Requerimiento" />
+                <ScalarProperty Name="Nombre_Documento" ColumnName="Nombre_Documento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REQUERIMIENTOS">
+            <EntityTypeMapping TypeName="PROandDOCModel.REQUERIMIENTOS">
+              <MappingFragment StoreEntitySet="REQUERIMIENTOS">
+                <ScalarProperty Name="Id_Requerimiento" ColumnName="Id_Requerimiento" />
+                <ScalarProperty Name="Nombre_Requerimiento" ColumnName="Nombre_Requerimiento" />
+                <ScalarProperty Name="Descripcion_Requerimiento" ColumnName="Descripcion_Requerimiento" />
+                <ScalarProperty Name="Area_Requerimiento" ColumnName="Area_Requerimiento" />
+                <ScalarProperty Name="Fecha_Requerimiento" ColumnName="Fecha_Requerimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RIESGOS">
+            <EntityTypeMapping TypeName="PROandDOCModel.RIESGOS">
+              <MappingFragment StoreEntitySet="RIESGOS">
+                <ScalarProperty Name="Id_Riesgo" ColumnName="Id_Riesgo" />
+                <ScalarProperty Name="Nombre_Riesgo" ColumnName="Nombre_Riesgo" />
+                <ScalarProperty Name="Tipo_Riesgo" ColumnName="Tipo_Riesgo" />
+                <ScalarProperty Name="Nivel_Riesgo" ColumnName="Nivel_Riesgo" />
+                <ScalarProperty Name="Descripcion_Riesgo" ColumnName="Descripcion_Riesgo" />
+                <ScalarProperty Name="Categoria_Riesgo" ColumnName="Categoria_Riesgo" />
+                <ScalarProperty Name="SubCategoria_Riesgo" ColumnName="SubCategoria_Riesgo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="PROandDOCModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="PROandDOCModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="PROandDOCModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="PROandDOCModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="PROandDOCModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PROandDOCModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="PROandDOCModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PROandDOCModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="PROandDOCModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="PROandDOCModel.Store.sp_upgraddiagrams" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

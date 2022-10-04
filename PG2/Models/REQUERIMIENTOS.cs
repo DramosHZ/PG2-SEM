@@ -17,9 +17,9 @@ namespace PG2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public REQUERIMIENTOS()
         {
+            this.AtencionRequerimiento = new HashSet<AtencionRequerimiento>();
             this.PRDR = new HashSet<PRDR>();
             this.REQandDOC = new HashSet<REQandDOC>();
-            this.AtencionRequerimiento = new HashSet<AtencionRequerimiento>();
         }
     
         public int Id_Requerimiento { get; set; }
@@ -29,10 +29,10 @@ namespace PG2.Models
         public Nullable<System.DateTime> Fecha_Requerimiento { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<AtencionRequerimiento> AtencionRequerimiento { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PRDR> PRDR { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<REQandDOC> REQandDOC { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<AtencionRequerimiento> AtencionRequerimiento { get; set; }
     }
 }
