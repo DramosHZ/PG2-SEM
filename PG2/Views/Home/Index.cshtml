@@ -1,83 +1,45 @@
-﻿using
-
+﻿@model List<PG2.Models.ViewModels.ListAtencionReqViewModels> 
 @{
     ViewBag.Title = "Home Page";
 }
 
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<h2>PROYECTOS</h2>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
-<div class="row">
-    <table class="table table-bordered">
-        <thead>
+    <div class="col-md-12">
+        <table class="table table-hover" >
             <tr>
-                <th>ID </th>
-                <th>Nombre </th>
-                <th>Descripcion </th>
-                <th>Fecha </th>
+                <th>#</th>
+                <th>#R</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Fecha</th>
                 <th>Estatus</th>
-                <th>Colaborador Atiende</th>
+                <th>Colaborador</th>
                 <th>Dependencia</th>
                 <th>Motivo</th>
             </tr>
-        </thead>
-        <tbody>
-            @*@foreach (var f in Model) 
-            {
+            @foreach (var oElemento in Model) { 
+                
                 <tr>
-                    <td>f.</td>
+                    <td>@oElemento.Id_Atencion</td>
+                    <td>@oElemento.Id_Requerimiento</td>
+                    <td>@oElemento.Nombre_Requerimiento</td>
+                    <td>@oElemento.Descripcion_Requerimiento</td>
+                    <td>@oElemento.Fecha_Requirimiento.ToString("dd/MM/yyyy")</td>
+                    <td>@oElemento.Estatus</td>
+                    <td>@oElemento.Colaborador_Atiende</td>
+                    @if (oElemento.Dependencia_SN == "2") {
+                        oElemento.Dependencia_SN = "NO";
+                    } else {
+                        oElemento.Dependencia_SN = "SI";
+                    }
+                    <td>@oElemento.Dependencia_SN</td>
+                    <td>@oElemento.Motivo_Dependencia</td>
                 </tr>
-            }*@
-        </tbody>
-    </table>
-
-    @Html.Partial("~/AtencionRequerimiento/AtencionRequerimiento")
-
+            
+            }
+        </table>
+    </div>
 </div>
