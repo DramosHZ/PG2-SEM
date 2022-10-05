@@ -1,6 +1,9 @@
-﻿@{
+﻿using
+
+@{
     ViewBag.Title = "Home Page";
 }
+
 
 <div class="jumbotron">
     <h1>ASP.NET</h1>
@@ -53,6 +56,28 @@
 </div>
 <div class="row">
     <table class="table table-bordered">
-
+        <thead>
+            <tr>
+                <th>ID </th>
+                <th>Nombre </th>
+                <th>Descripcion </th>
+                <th>Fecha </th>
+                <th>Estatus</th>
+                <th>Colaborador Atiende</th>
+                <th>Dependencia</th>
+                <th>Motivo</th>
+            </tr>
+        </thead>
+        <tbody>
+            @*@foreach (var f in Model) 
+            {
+                <tr>
+                    <td>f.</td>
+                </tr>
+            }*@
+        </tbody>
     </table>
+
+    @Html.Partial("~/AtencionRequerimiento/AtencionRequerimiento")
+
 </div>
