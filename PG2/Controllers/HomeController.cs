@@ -10,7 +10,7 @@ namespace PG2.Controllers
 {
     public class HomeController : Controller
     {
-        [AuthorizeUser(IdOperacion: 1)]
+        [AuthorizeUser(IdOperacion: 2)]
         public ActionResult Index()
         {
             List<ListAtencionReqViewModels> lst;
@@ -37,14 +37,14 @@ namespace PG2.Controllers
 
             return View(lst);
         }
-        [AuthorizeUser(IdOperacion: 2)]
+        [AuthorizeUser(IdOperacion: 4)]
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
-        [AuthorizeUser(IdOperacion: 4)]
+        [AuthorizeUser(IdOperacion: 5)]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

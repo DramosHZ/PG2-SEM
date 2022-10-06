@@ -14,7 +14,6 @@ namespace PG2.Models
     
     public partial class Usuario
     {
-
         public int idUser { get; set; }
         public string nomUser { get; set; }
         public string emailUser { get; set; }

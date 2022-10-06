@@ -10,7 +10,7 @@
         <EntityTypeShape EntityType="SEGEXCAModel.Rol" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
         <EntityTypeShape EntityType="SEGEXCAModel.RolOperacion" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
         <EntityTypeShape EntityType="SEGEXCAModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="SEGEXCAModel.Usuario" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SEGEXCAModel.Usuario" Width="2.625" PointX="3" PointY="6.375" IsExpanded="true" />
         <AssociationConnector Association="SEGEXCAModel.FK_Operaciones_Modulo" ManuallyRouted="false" />
         <AssociationConnector Association="SEGEXCAModel.FK_RolOperacion_Operaciones" ManuallyRouted="false" />
         <AssociationConnector Association="SEGEXCAModel.FK_RolOperacion_Rol" ManuallyRouted="false" />

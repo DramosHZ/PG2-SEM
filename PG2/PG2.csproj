@@ -210,7 +210,7 @@
       <DependentUpon>PRDR.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\sysdiagrams.cs">
-      <DependentUpon>PRDR.tt</DependentUpon>
+      <DependentUpon>AccesoSeguridad.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs">
       <DependentUpon>AccesoSeguridad.tt</DependentUpon>

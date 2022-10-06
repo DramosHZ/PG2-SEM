@@ -13,55 +13,75 @@
     }
 
         .demo th {
-            border: 1px solid #C0C0C0;
-            padding: 5px;
-            background: #F0F0F0;
+            border: 0px solid #C0C0C0;
+
         }
 
         .demo td {
-            border: 1px solid #C0C0C0;
+            border: 0px solid #C0C0C0;
             text-align: center;
-            padding: 5px;
         }
+
+    .Sticker {
+/*        border-radius: 10px 10px 10px 10px;
+        -moz-border-radius: 10px 10px 10px 10px;
+        -webkit-border-radius: 10px 10px 10px 10px;
+        border: 0px solid #000000;*/
+        height: 140px;
+/*        -webkit-box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);*/
+    }
+
 </style>
 
 <h2>PROYECTOS</h2>
 <hr style="background:black; height:3px;" />
 
-<div class="row" style="border:2px solid #ff0000;">
+<div class="row" style="border:0px solid #4cff00; margin-bottom:25px; align-content:center;">
     @foreach (var oElemento in Model)
     {
+
+        if (oElemento.Dependencia_SN == "2")
+        {
+            oElemento.Dependencia_SN = "NO";
+        }
+        else
+        {
+            oElemento.Dependencia_SN = "SI";
+        }
+
         if (oElemento.Estatus == "In Process")
         {
-            <div class="col-md-3">
-                  <table class="demo">    
-                      <thead>
-                          <tr>
-                              <th colspan="3">@oElemento.Nombre_Requerimiento</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                              <td colspan="3">@oElemento.Descripcion_Requerimiento</td>
-                          </tr>
-                          <tr>
-                              <td>@oElemento.Fecha_Requirimiento.ToString("dd/MM/yyyy")</td>
-                              <td></td>
-                              <td>@oElemento.Dependencia_SN</td>
-                          </tr>
-                          <tr>
-                              <td></td>
-                              <td></td>
-                              <td>@oElemento.Estatus</td>
-                          </tr>
-                      <tbody>
-                  </table>
+            <div id="Sticker" class="col-md-3 Sticker" style="border: 0px solid #C0C0C0; padding: 10px; margin-left: 25px; margin-bottom: 25px; background-color: #DEDEDE;">
+                <table class="demo">
+                    <thead>
+                        <tr>
+                            <th colspan="3" style="text-align:center;">@oElemento.Nombre_Requerimiento</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td colspan="3">@oElemento.Descripcion_Requerimiento</td>
+                        </tr>
+                        <tr>
+                            <td>@oElemento.Fecha_Requirimiento.ToString("dd/MM/yyyy")</td>
+                            <td></td>
+                            <td>@oElemento.Dependencia_SN</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td>@oElemento.Estatus</td>
+                        </tr>
+                    <tbody>
+                </table>
             </div>
         }
     }
 </div>
 
-<div class="row" style="border:2px solid #ff0000;">
+<div class="row" style="border:0px solid #ff0000;">
     <div class="col-md-12">
         <table class="table table-hover">
             <tr>
