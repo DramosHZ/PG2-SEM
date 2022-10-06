@@ -1,14 +1,91 @@
-﻿@model List<PG2.Models.ViewModels.ListAtencionReqViewModels> 
+﻿@model List<PG2.Models.ViewModels.ListAtencionReqViewModels>
 @{
     ViewBag.Title = "Home Page";
 }
+<style>
+    .demo {
+        border: 3px solid #C0C0C0;
+/*        border-collapse: collapse;*/
+/*        padding: 5px;*/
+    }
 
+        .demo th {
+            border: 1px solid #C0C0C0;
+            padding: 5px;
+            background: #F0F0F0;
+        }
+
+        .demo td {
+            border: 1px solid #C0C0C0;
+            text-align: center;
+            padding: 5px;
+        }
+</style>
 
 <h2>PROYECTOS</h2>
+<hr style="background:black; height:3px;" />
 
 <div class="row">
     <div class="col-md-12">
-        <table class="table table-hover" >
+        <table class="table" style="border:2px;">
+            <tr>
+                @foreach (var oElemento in Model)
+                {
+                    if (oElemento.Estatus == "In Process")
+                    {
+                        <td>
+                            <div class="" style="border:2px;">
+
+                                @if (oElemento.Dependencia_SN == "2")
+                                {
+                                    oElemento.Dependencia_SN = "NO";
+                                }
+                                else
+                                {
+                                    oElemento.Dependencia_SN = "SI";
+                                }
+
+                                <table class="demo">    
+                                    <thead>
+                                        <tr>
+                                            <th>@oElemento.Nombre_Requerimiento</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>@oElemento.Descripcion_Requerimiento</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        <tr>
+                                            <td>@oElemento.Fecha_Requirimiento.ToString("dd/MM/yyyy")</td>
+                                            <td>@oElemento.Dependencia_SN</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>@oElemento.Estatus</td>
+                                        </tr>
+                                        <tr>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                    <tbody>
+                                </table>
+                            </div>
+                        </td>
+                    }
+                }
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-hover">
             <tr>
                 <th>#</th>
                 <th>#R</th>
@@ -20,8 +97,9 @@
                 <th>Dependencia</th>
                 <th>Motivo</th>
             </tr>
-            @foreach (var oElemento in Model) { 
-                
+            @foreach (var oElemento in Model)
+            {
+
                 <tr>
                     <td>@oElemento.Id_Atencion</td>
                     <td>@oElemento.Id_Requerimiento</td>
@@ -30,15 +108,18 @@
                     <td>@oElemento.Fecha_Requirimiento.ToString("dd/MM/yyyy")</td>
                     <td>@oElemento.Estatus</td>
                     <td>@oElemento.Colaborador_Atiende</td>
-                    @if (oElemento.Dependencia_SN == "2") {
+                    @if (oElemento.Dependencia_SN == "2")
+                    {
                         oElemento.Dependencia_SN = "NO";
-                    } else {
+                    }
+                    else
+                    {
                         oElemento.Dependencia_SN = "SI";
                     }
                     <td>@oElemento.Dependencia_SN</td>
                     <td>@oElemento.Motivo_Dependencia</td>
                 </tr>
-            
+
             }
         </table>
     </div>
