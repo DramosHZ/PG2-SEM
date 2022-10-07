@@ -37,7 +37,7 @@ namespace PG2.Filters
                     NombreOperacion = getnomOpe(IdOperacion);
                     int? idModulo = oOperacion.idMod;
                     NombreModulo = getNombreDelModulo(idModulo);
-                    filterContext.Result = new RedirectResult("~/Error/UnauthorizedOperation?operacion=" + NombreOperacion, "~/Error/UnauthorizedOperation?modulo=" + NombreModulo) ;
+                    filterContext.Result = new RedirectResult("~/Error/UnauthorizedOperation?operacion=" + NombreOperacion, "~/Error/UnauthorizedOperation?modulo=" + NombreModulo) ;z
                          
                 
                 }
