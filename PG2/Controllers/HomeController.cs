@@ -10,9 +10,12 @@ namespace PG2.Controllers
 {
     public class HomeController : Controller
     {
+        
+
         [AuthorizeUser(IdOperacion: 2)]
         public ActionResult Index()
         {
+            
             List<ListAtencionReqViewModels> lst;
 
             using (Models.PROandDOCEntities db = new Models.PROandDOCEntities())

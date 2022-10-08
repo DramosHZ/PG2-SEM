@@ -3,8 +3,13 @@
     ViewBag.Title = "Home Page";
 }
 <style>
+
+    body {
+        background: #f2f4f4;
+    }
+
     .demo {
-        border: 0px solid #C0C0C0;
+        border: 0px solid #ff0000;
         width:100%;
         height:100%;
 /*        border-collapse: collapse;*/
@@ -13,8 +18,7 @@
     }
 
         .demo th {
-            border: 0px solid #C0C0C0;
-
+            border: 0px solid #ff0000;
         }
 
         .demo td {
@@ -22,23 +26,54 @@
             text-align: center;
         }
 
+    #stick.hover {
+        
+    
+    }
     .Sticker {
-/*        border-radius: 10px 10px 10px 10px;
+        border-radius: 10px 10px 10px 10px;
         -moz-border-radius: 10px 10px 10px 10px;
         -webkit-border-radius: 10px 10px 10px 10px;
-        border: 0px solid #000000;*/
+        border: 0px solid #000000;
         height: 140px;
-/*        -webkit-box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
         -moz-box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
-        box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);*/
+        box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
+        text-decoration: none;
     }
 
+
+    #table {
+        -webkit-box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
+        box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
+    }
+
+    #ite {
+
+    }
+
+    .ha {
+        border:0px solid #ff0000;
+        padding:0px;
+        text-decoration:none;
+    }
+
+
 </style>
+<script>
+
+    function detalle_requerimiento() {
+
+
+    }
+
+</script>
 
 <h2>PROYECTOS</h2>
 <hr style="background:black; height:3px;" />
 
-<div class="row" style="border:0px solid #4cff00; margin-bottom:25px; align-content:center;">
+<div id="stick" class="row" style="border:0px solid #ff0000; padding-top:25px; margin-bottom:25px; align-content:;">
     @foreach (var oElemento in Model)
     {
 
@@ -53,8 +88,9 @@
 
         if (oElemento.Estatus == "In Process")
         {
-            <div id="Sticker" class="col-md-3 Sticker" style="border: 0px solid #C0C0C0; padding: 10px; margin-left: 25px; margin-bottom: 25px; background-color: #DEDEDE;">
-                <table class="demo">
+            <a class="col-md-3 ha"  href="About">
+            <div id="Sticker" role="button"  class=" Sticker" style="color: white; border: 2px solid #34495e; padding: 10px; margin-left: 25px; margin-bottom: 25px; background-color: #34495e; ">
+                <table class="demo" >
                     <thead>
                         <tr>
                             <th colspan="3" style="text-align:center;">@oElemento.Nombre_Requerimiento</th>
@@ -62,7 +98,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td colspan="3">@oElemento.Descripcion_Requerimiento</td>
+                            <td colspan="3" style="text-decoration:none;">@oElemento.Descripcion_Requerimiento</td>
                         </tr>
                         <tr>
                             <td>@oElemento.Fecha_Requirimiento.ToString("dd/MM/yyyy")</td>
@@ -77,30 +113,21 @@
                     <tbody>
                 </table>
             </div>
+            </a>
         }
     }
 </div>
 
 <div class="row" style="border:0px solid #ff0000;">
-    <div class="col-md-12">
-        <table class="table table-hover">
+    <div class="col-md-12" role="button" >
+        <table id="table" class="table table-hover">
             <tr>
-                <th colspan="9" style="background:#C0C0C0;">Listado de Requerimientos ...</th>
+                <th colspan="9" style="background: #2e4053; color:white;">Listado de Requerimientos ...</th>
             </tr>
-            <tr>
-                <th>Codigo</th>
-                <th>Nombre</th>
-                <th>Descripcion</th>
-                <th>Fecha</th>
-                <th>Estatus</th>
-                <th>Colaborador</th>
-                <th>Dependencia</th>
-                <th>Motivo</th>
-            </tr>
+
             @foreach (var oElemento in Model)
             {
-
-                <tr>
+                <tr style="margin-bottom:50px;">
                     <td style="text-align:center;">@oElemento.Id_Requerimiento</td>
                     <td>@oElemento.Nombre_Requerimiento</td>
                     <td>@oElemento.Descripcion_Requerimiento</td>
@@ -115,11 +142,33 @@
                     {
                         oElemento.Dependencia_SN = "SI";
                     }
-                    <td style="text-align:center;" >@oElemento.Dependencia_SN</td>
+                    <td style="text-align:center;">@oElemento.Dependencia_SN</td>
                     <td>@oElemento.Motivo_Dependencia</td>
-                </tr>
-
+                </tr> 
             }
         </table>
+    </div>
+
+</div>
+
+<div class="modal fade" id="ventana_requerimiento">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!--header-->
+            <div class="modal-header">
+                <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4></h4>
+            </div>
+            <!---body-->
+            <div class="modal-body">
+                <p></p>
+            </div>
+            <!--footer-->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar</button>
+                <button></button> 
+            </div>
+        </div>
     </div>
 </div>

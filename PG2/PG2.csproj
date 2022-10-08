@@ -215,6 +215,7 @@
     <Compile Include="Models\Usuario.cs">
       <DependentUpon>AccesoSeguridad.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\DUr.cs" />
     <Compile Include="Models\ViewModels\ListAtencionReqViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

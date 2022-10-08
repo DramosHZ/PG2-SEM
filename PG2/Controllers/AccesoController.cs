@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PG2.Models.ViewModels;
+
 
 namespace PG2.Controllers
 {
+
     public class AccesoController : Controller
     {
         // GET: Acceso
@@ -14,9 +17,12 @@ namespace PG2.Controllers
             return View();
         }
 
+
         [HttpPost]
         public ActionResult Login(string user, string pass) 
         {
+
+            DUr ur = new DUr();
 
             try
             {
@@ -26,6 +32,8 @@ namespace PG2.Controllers
                     var oUser = (from u in db.Usuario
                                  where u.emailUser == user.Trim() && u.passUser == pass.Trim()
                                  select u).FirstOrDefault();
+                        
+
 
                     if (oUser == null) {
 
@@ -34,9 +42,18 @@ namespace PG2.Controllers
                         
                     }
 
+                    ur.idUser           =oUser.idUser;
+                    ur.nomUser          =oUser.nomUser;
+                    ur.emailUser        =oUser.emailUser;
+                    ur.fechaUser        =oUser.fechaUser;
+                    ur.fechapassUser    =oUser.fechapassUser;
+                    ur.idRol            =oUser.idRol;
+                    ur.Rol              =oUser.Rol;
+
                     Session["user"] = oUser;
                 
                 }
+
 
                 return RedirectToAction("Index", "Home");
             }
