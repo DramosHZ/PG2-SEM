@@ -18,4 +18,5 @@ namespace PG2.Models.ViewModels
         public virtual Rol Rol { get; set; }
 
     }
+
 }

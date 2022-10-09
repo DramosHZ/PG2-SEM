@@ -1,10 +1,12 @@
 ﻿using PG2.Filters;
+using PG2.Models;
 using PG2.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+
 
 namespace PG2.Controllers
 {
@@ -15,7 +17,12 @@ namespace PG2.Controllers
         [AuthorizeUser(IdOperacion: 2)]
         public ActionResult Index()
         {
+            Usuario ooUser;
             
+            ooUser = (Usuario)HttpContext.Session["user"];
+
+            ViewBag.Mensaje = ooUser.nomUser;
+
             List<ListAtencionReqViewModels> lst;
 
             using (Models.PROandDOCEntities db = new Models.PROandDOCEntities())

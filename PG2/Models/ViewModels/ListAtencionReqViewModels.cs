@@ -22,4 +22,5 @@ namespace PG2.Models.ViewModels
         public int Id_Requerimiento { get; set; }
 
     }
+
 }

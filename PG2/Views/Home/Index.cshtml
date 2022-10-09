@@ -78,6 +78,7 @@
     @foreach (var oElemento in Model)
     {
 
+
         if (oElemento.Dependencia_SN == "2")
         {
             oElemento.Dependencia_SN = "NO";
@@ -89,32 +90,35 @@
 
         if (oElemento.Estatus == "In Process")
         {
-            <a class="col-md-3 ha"  href="About">
-            <div id="Sticker" role="button"  class=" Sticker" style="color: white; border: 2px solid #34495e; padding: 10px; margin-left: 25px; margin-bottom: 25px; background-color: #34495e; ">
-                <table class="demo" >
-                    <thead>
-                        <tr>
-                            <th colspan="3" style="text-align:center;">@oElemento.Nombre_Requerimiento</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td colspan="3" style="text-decoration:none;">@oElemento.Descripcion_Requerimiento</td>
-                        </tr>
-                        <tr>
-                            <td>@oElemento.Fecha_Requirimiento.ToString("dd/MM/yyyy")</td>
-                            <td></td>
-                            <td>@oElemento.Dependencia_SN</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td>@oElemento.Estatus</td>
-                        </tr>
-                    <tbody>
-                </table>
-            </div>
-            </a>
+            if (ViewBag.Mensaje == oElemento.Colaborador_Atiende)
+            {
+                <a class="col-md-3 ha"  href="About">
+                <div id="Sticker" role="button"  class=" Sticker" style="color: white; border: 2px solid #34495e; padding: 10px; margin-left: 25px; margin-bottom: 25px; background-color: #34495e; ">
+                    <table class="demo" >
+                        <thead>
+                            <tr>
+                                <th colspan="3" style="text-align:center;">@oElemento.Nombre_Requerimiento</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan="3" style="text-decoration:none;">@oElemento.Descripcion_Requerimiento</td>
+                            </tr>
+                            <tr>
+                                <td>@oElemento.Fecha_Requirimiento.ToString("dd/MM/yyyy")</td>
+                                <td></td>
+                                <td>@oElemento.Dependencia_SN</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>@oElemento.Estatus</td>
+                            </tr>
+                        <tbody>
+                    </table>
+                </div>
+                </a>
+            }
         }
     }
 </div>
@@ -128,24 +132,28 @@
 
             @foreach (var oElemento in Model)
             {
-                <tr style="margin-bottom:50px;">
-                    <td style="text-align:center;">@oElemento.Id_Requerimiento</td>
-                    <td>@oElemento.Nombre_Requerimiento</td>
-                    <td>@oElemento.Descripcion_Requerimiento</td>
-                    <td>@oElemento.Fecha_Requirimiento.ToString("dd/MM/yyyy")</td>
-                    <td>@oElemento.Estatus</td>
-                    <td>@oElemento.Colaborador_Atiende</td>
-                    @if (oElemento.Dependencia_SN == "2")
-                    {
-                        oElemento.Dependencia_SN = "NO";
-                    }
-                    else
-                    {
-                        oElemento.Dependencia_SN = "SI";
-                    }
-                    <td style="text-align:center;">@oElemento.Dependencia_SN</td>
-                    <td>@oElemento.Motivo_Dependencia</td>
-                </tr> 
+                if (ViewBag.Mensaje == oElemento.Colaborador_Atiende)
+                {
+
+                    <tr style="margin-bottom:50px;">
+                        <td style="text-align:center;">@oElemento.Id_Requerimiento</td>
+                        <td>@oElemento.Nombre_Requerimiento</td>
+                        <td>@oElemento.Descripcion_Requerimiento</td>
+                        <td>@oElemento.Fecha_Requirimiento.ToString("dd/MM/yyyy")</td>
+                        <td>@oElemento.Estatus</td>
+                        <td>@oElemento.Colaborador_Atiende</td>
+                        @if (oElemento.Dependencia_SN == "2")
+                        {
+                            oElemento.Dependencia_SN = "NO";
+                        }
+                        else
+                        {
+                            oElemento.Dependencia_SN = "SI";
+                        }
+                        <td style="text-align:center;">@oElemento.Dependencia_SN</td>
+                        <td>@oElemento.Motivo_Dependencia</td>
+                    </tr> 
+                }
             }
         </table>
     </div>
