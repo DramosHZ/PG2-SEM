@@ -229,6 +229,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\Estados\Estado_Amarillo-removebg-preview.png" />
+    <Content Include="image\Estados\Estado_Rojo-removebg-preview.png" />
+    <Content Include="image\Estados\Estado_Verde-removebg-preview.png" />
     <Content Include="image\login\cliente.png" />
     <Content Include="image\login\bk_1.jpg" />
     <Content Include="Models\AccesoSeguridad.Context.tt">
