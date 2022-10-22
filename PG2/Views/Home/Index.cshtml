@@ -199,8 +199,8 @@
 </div>
 
 <div class="modal fade" id="ventana_requerimiento">
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-dialog col-md-12">
+        <div class="modal-content" style="width:1500px;">
             
             <!--header-->
             <div class="modal-header">
@@ -210,12 +210,41 @@
             <!---body-->
             <div class="modal-body">
                 <p>hola mundo</p>
+                <table class="table" style="border: 2px solid rgb(108 252 9 / 0.75)">
+                    <tr>
+                        <td>Estado</td>
+                        <td id="Estado_Modal">
+                            <select id="Select_Estado_Modal">
+                                <option>New</option>
+                                <option>In Process</option>
+                                <option>Done</option>
+                            </select>
+                        </td>
+                        <td>Area</td>
+                        <td id="Area_Modal"></td>
+                    </tr>
+                    <tr>
+                        <td>state</td>
+                        <td>state</td>
+                        <td>state</td>
+                        <td>state</td>
+                        <td>state</td>
+                    </tr>
+                    <tr>
+                        <td>state</td>
+                        <td>state</td>
+                    </tr>
+                    <tr>
+                        <frame>
+
+                        </frame>
+                    </tr>
+                </table> 
             </div>
             <!--footer-->
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                 <button type="button" class="btn btn-primary">Guardar</button>
-                <button></button> 
             </div>
         </div>
     </div>
