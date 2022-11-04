@@ -17,8 +17,62 @@
 }
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
+}*/
+
+
+.danger {
+    
+    color:red;
+
+
+}
+
+.divformguardar {
+    padding: 15px;
+    border: 0px solid red;
+}
+.DivValorRequerido {
+
+    padding:5px;
+    border:0px solid yellow;
+
+}
+
+.NRTBOX {
+    
+}
+
+.divformguardar2 {
+    padding: 0px;
+/*    background:#2e4053;*/
+    border: 0px solid red;
+/*    -webkit-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px 2px 5px 0px rgba(0,0,0,0.75);*/
+    /*color :white;*/
+}
+
+.divCFG {
+    border: 0px solid green;
+    /* background-image: radial-gradient(circle at 46.51% 45.84%, #ffffff 0, #ffffff 25%, #f2f4f4 50%, #c8d9da 75%, #a8c4c8 100%);*/
+    background: #34495e;
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+    padding: 0px;
+    -webkit-box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
+    text-decoration: none;
+}
+
+.divformguardarT {
+    padding: 15px;
+    border: 0px solid red;
+    color:white;
 }

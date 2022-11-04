@@ -215,6 +215,8 @@
     <Compile Include="Models\Usuario.cs">
       <DependentUpon>AccesoSeguridad.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewModels\CRUDAtencionRequerimientos.cs" />
+    <Compile Include="Models\ViewModels\CRUDRequerimiento.cs" />
     <Compile Include="Models\ViewModels\DUr.cs" />
     <Compile Include="Models\ViewModels\ListAtencionReqViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -229,6 +231,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="image\CRUD\documento.png" />
+    <Content Include="image\CRUD\nuevo-documento.png" />
     <Content Include="image\Estados\Estado_Amarillo-removebg-preview.png" />
     <Content Include="image\Estados\Estado_Rojo-removebg-preview.png" />
     <Content Include="image\Estados\Estado_Verde-removebg-preview.png" />
@@ -254,8 +258,6 @@
       <DependentUpon>PRDR.edmx</DependentUpon>
       <LastGenOutput>PRDR1.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="Models\AccesoSeguridad.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>AccesoSeguridad.Designer.cs</LastGenOutput>
@@ -270,7 +272,17 @@
     <Content Include="Models\PRDR.edmx.diagram">
       <DependentUpon>PRDR.edmx</DependentUpon>
     </Content>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
@@ -297,20 +309,16 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Acceso\Login.cshtml" />
     <Content Include="Views\Error\UnauthorizedOperation.cshtml" />
+    <Content Include="Views\Home\PBI_SELECCION.cshtml" />
+    <Content Include="Views\Home\Guardar.cshtml" />
+    <Content Include="Views\Home\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\NuevoRequerimiento\" />
     <Folder Include="Views\PRDR\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />

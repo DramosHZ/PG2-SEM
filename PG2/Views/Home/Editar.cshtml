@@ -1,0 +1,161 @@
+﻿@model PG2.Models.ViewModels.CRUDAtencionRequerimientos
+@using PG2.Models.ViewModels
+
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2 style="font-family: Rockwell;">REGISTRAR PROYECTO</h2>
+<hr style="background:black; height:3px;" />
+
+@using (Html.BeginForm("Editar", "Home", FormMethod.Post))
+{
+    <div class="container col-md-12" style="margin-bottom:85px;">
+        <div class="col-md-1"></div>
+        <div class="row divCFG col-md-10">
+            <div class="col-md-12">
+                @Html.HiddenFor(d => d.Id_Atencion)
+                @Html.HiddenFor(d => d.Id_Requerimiento)
+                <div class="divformguardar col-md-7">
+                    <div class="divformguardar2">
+                        <div class="divformguardarT">
+                            @Html.LabelFor(d => d.Nombre_Requerimiento)
+                        </div>
+                        <div class="divformguardar">
+                            @Html.TextBoxFor(d => d.Nombre_Requerimiento, "", new { @class = "form-control NRTBOX" })
+                        </div>
+                        <div class="DivValorRequerido">
+                            @Html.ValidationMessageFor(d => d.Nombre_Requerimiento, null, new { @class = "danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="divformguardar col-md-5">
+                    <div class="divformguardar2">
+                        <div class="divformguardarT">
+                            @Html.LabelFor(d => d.Estatus)
+                        </div>
+                        <div class="divformguardar">
+                            @Html.TextBoxFor(d => d.Estatus, "", new { @class = "form-control" })
+                        </div>
+                        <div class="DivValorRequerido">
+                            @Html.ValidationMessageFor(d => d.Estatus, null, new { @class = "danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="divformguardar col-md-8">
+                    <div class="divformguardar2">
+                        <div class="divformguardarT">
+                            @Html.LabelFor(d => d.Descripcion_Requerimiento)
+                        </div>
+                        <div class="divformguardar">
+                            @Html.TextBoxFor(d => d.Descripcion_Requerimiento, "", new { @class = "form-control" })
+                        </div>
+                        <div class="DivValorRequerido">
+                            @Html.ValidationMessageFor(d => d.Descripcion_Requerimiento, null, new { @class = "danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="divformguardar col-md-4">
+                    <div class="divformguardar2">
+                        <div class="divformguardarT">
+                            @Html.LabelFor(d => d.Area_Requerimiento)
+                        </div>
+                        <div class="divformguardar">
+                            @Html.TextBoxFor(d => d.Area_Requerimiento, "", new { @class = "form-control" })
+                        </div>
+                        <div class="DivValorRequerido">
+                            @Html.ValidationMessageFor(d => d.Area_Requerimiento, null, new { @class = "danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="divformguardar col-md-4">
+                    <div class="divformguardar2  ">
+                        <div class="divformguardarT">
+                            @Html.LabelFor(d => d.Colaborador_Atiende)
+                        </div>
+                        <div class="divformguardar">
+                            @Html.TextBoxFor(d => d.Colaborador_Atiende, "", new { @class = "form-control" })
+                        </div>
+                        <div class="DivValorRequerido">
+                            @Html.ValidationMessageFor(d => d.Colaborador_Atiende, null, new { @class = "danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="divformguardar col-md-4">
+                    <div class="divformguardar2 ">
+                        <div class="divformguardarT">
+                            @Html.LabelFor(d => d.Solicitante_Requerimiento)
+                        </div>
+                        <div class="divformguardar">
+                            @Html.TextBoxFor(d => d.Solicitante_Requerimiento, "", new { @class = "form-control" })
+                        </div>
+                        <div class="DivValorRequerido">
+                            @Html.ValidationMessageFor(d => d.Solicitante_Requerimiento, null, new { @class = "danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="divformguardar col-md-4">
+                    <div class="divformguardar2 ">
+                        <div class="divformguardarT">
+                            @Html.LabelFor(d => d.Encargado_Requerimiento)
+                        </div>
+                        <div class="divformguardar">
+                            @Html.TextBoxFor(d => d.Encargado_Requerimiento, "", new { @class = "form-control" })
+                        </div>
+                        <div class="DivValorRequerido">
+                            @Html.ValidationMessageFor(d => d.Encargado_Requerimiento, null, new { @class = "danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="divformguardar col-md-4">
+                    <div class="divformguardar2 ">
+                        <div class="divformguardarT">
+                            @Html.LabelFor(d => d.Dependencia_SN)
+                        </div>
+                        <div class="divformguardar">
+                            @Html.TextBoxFor(d => d.Dependencia_SN, "", new { @class = "form-control" })
+                        </div>
+                        <div class="DivValorRequerido">
+                            @Html.ValidationMessageFor(d => d.Dependencia_SN, null, new { @class = "danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="divformguardar col-md-4">
+                    <div class="divformguardar2 ">
+                        <div class="divformguardarT">
+                            @Html.LabelFor(d => d.Motivo_Dependencia)
+                        </div>
+                        <div class="divformguardar">
+                            @Html.TextBoxFor(d => d.Motivo_Dependencia, "", new { @class = "form-control" })
+                        </div>
+                        <div class="DivValorRequerido">
+                            @Html.ValidationMessageFor(d => d.Motivo_Dependencia, null, new { @class = "danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="divformguardar col-md-4">
+                    <div class="divformguardar2">
+                        <div class="divformguardarT">
+                            @Html.HiddenFor(d => d.Fecha_Requirimiento)
+                        </div>
+                        <div class="divformguardar">
+
+                        </div>
+                        <div class="DivValorRequerido">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="divformguardar col-md-12" style="text-align: right;">
+                    <a class="btn btn-danger" href="javascript:history.back()"> Volver Atrás</a>
+                    <input class="btn btn-primary" type="submit" name="Guardar" value="Guardar" />
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <br />
+}
+
+
+

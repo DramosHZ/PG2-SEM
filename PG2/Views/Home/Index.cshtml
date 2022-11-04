@@ -3,6 +3,8 @@
 @{
     ViewBag.Title = "Home Page";
 }
+
+
 <style>
 
     body {
@@ -11,11 +13,10 @@
 
     .demo {
         border: 0px solid #ff0000;
-        width:100%;
-        height:100%;
-/*        border-collapse: collapse;*/
-/*        padding: 5px;*/
-        
+        width: 100%;
+        height: 100%;
+        /*        border-collapse: collapse;*/
+        /*        padding: 5px;*/
     }
 
         .demo th {
@@ -31,9 +32,8 @@
         background-color: #51677E;
         text-decoration: none;
     }
+
     .Sticker {
-
-
         /*bordes redondos*/
         border-radius: 10px 10px 10px 10px;
         -moz-border-radius: 10px 10px 10px 10px;
@@ -48,16 +48,13 @@
         box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
         text-decoration: none;
         /*margen entre div*/
-        margin:15px;
+        margin: 15px;
         /*fondo de div*/
-        background:#2e4053;
+        background: #2e4053;
         /*color de letra*/
-        color:#f2f4f4;
+        color: #f2f4f4;
         /*espacion entre borde y contenido*/
-        padding:15px;
-
-
-
+        padding: 15px;
     }
 
 
@@ -65,41 +62,60 @@
         -webkit-box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
         -moz-box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
         box-shadow: 0px 0px 14px -5px rgba(0,0,0,0.75);
-        text-decoration:none;
+        text-decoration: none;
     }
 
     #ite {
-
     }
 
     .ha {
-        border:0px solid #ff0000;
-        padding:0px;
-        text-decoration:none;
-    }
-    .Estado_icono {
-        
-        width:12px;
-        height:10px;
-    
+        border: 0px solid #ff0000;
+        padding: 0px;
+        text-decoration: none;
     }
 
+    .Estado_icono {
+        width: 12px;
+        height: 10px;
+    }
+    .boton_nuevo {
+     
+    }
+    #icono_nuevo {
+        
+        width:30px;
+        height:30px;
+    
+    }
+    .div_panel {
+        text-align:right;
+    }
 </style>
 <script>
 
 
-    function detalle_requerimiento(Titulo,Detalle) {
+    function detalle_requerimiento(Titulo, Detalle) {
 
         document.getElementById('Titulo_Modal').innerHTML = Titulo;
- 
+
     }
 
 </script>
 
 <h2 style="font-family: Rockwell;">PROYECTOS</h2>
 <hr style="background:black; height:3px;" />
+<div class="row">
+    <div class="col-md-10"></div>
+    <div class="col-md-2 div_panel" style="padding-left: 20px; padding-right: 20px;">
+        <a href="Guardar" class=" boton_nuevo">
+            <img id="icono_nuevo" src="~/image/CRUD/nuevo-documento.png" />
+        </a>
+    </div>
+</div>
 
-<div id="stick" class="row" style="border:0px solid #ff0000; padding-top:25px; margin-bottom:25px; align-content:;">
+
+<div id="stick" class="row" style="border:0px solid #ff0000; padding-top:25px; margin-bottom:25px;">
+
     @foreach (var oElemento in Model)
     {
 
@@ -117,44 +133,45 @@
         {
             if (ViewBag.Mensaje == oElemento.Colaborador_Atiende)
             {
-                <a id="req" style="text-decoration:none;" class="col-md-3 ha"  href="#ventana_requerimiento" data-toggle="modal" onclick="detalle_requerimiento('@oElemento.Nombre_Requerimiento','@oElemento.Descripcion_Requerimiento')">
-                <div  role="button"  class="Sticker">
-                    <table class="demo"  >
-                        <thead>
-                            <tr>
-                                <th colspan="3" style="text-align:center;">@oElemento.Nombre_Requerimiento</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td colspan="3" style="text-decoration:none;">@oElemento.Descripcion_Requerimiento</td>
-                            </tr>
-                            <tr>
-                                <td>@oElemento.Fecha_Requirimiento.ToString("dd/MM/yyyy")</td>
-                                <td></td>
-                                <td>@oElemento.Dependencia_SN</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>
-                                    @if (oElemento.Estatus == "In Process")
-                                    {
-                                        <img class="Estado_icono" src="~/image/Estados/Estado_Amarillo-removebg-preview.png" />
-                                    }
-                                    else if (oElemento.Estatus == "Done")
-                                    {
-                                        <img class="Estado_icono" src="~/image/Estados/Estado_Verde-removebg-preview.png" />
-                                    }
-                                    else
-                                    {
-                                        <img class="Estado_icono" src="~/image/Estados/Estado_Rojo-removebg-preview.png" />
-                                    }
-                                </td>
-                                <td>@oElemento.Estatus</td>
-                            </tr>
-                        <tbody>
-                    </table>
-                </div>
+                <a id="req" style="text-decoration:none;" class="col-md-3 ha" href="Editar/@oElemento.Id_Atencion" data-toggle="modal" onclick="detalle_requerimiento('@oElemento.Nombre_Requerimiento','@oElemento.Descripcion_Requerimiento')">
+                    <div role="button" class="Sticker">
+                        <table class="demo">
+
+                            <thead>
+                                <tr>
+                                    <th colspan="3" style="text-align:center;">@oElemento.Nombre_Requerimiento</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td colspan="3" style="text-decoration:none;">@oElemento.Descripcion_Requerimiento</td>
+                                </tr>
+                                <tr>
+                                    <td>@oElemento.Fecha_Requirimiento.ToString("dd/MM/yyyy")</td>
+                                    <td></td>
+                                    <td>@oElemento.Dependencia_SN</td>
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                    <td>
+                                        @if (oElemento.Estatus == "In Process")
+                                        {
+                                            <img class="Estado_icono" src="~/image/Estados/Estado_Amarillo-removebg-preview.png" />
+                                        }
+                                        else if (oElemento.Estatus == "Done")
+                                        {
+                                            <img class="Estado_icono" src="~/image/Estados/Estado_Verde-removebg-preview.png" />
+                                        }
+                                        else
+                                        {
+                                            <img class="Estado_icono" src="~/image/Estados/Estado_Rojo-removebg-preview.png" />
+                                        }
+                                    </td>
+                                    <td>@oElemento.Estatus</td>
+                                </tr>
+                            <tbody>
+                        </table>
+                    </div>
                 </a>
             }
         }
@@ -162,7 +179,7 @@
 </div>
 
 <div class="row" style="border:0px solid #ff0000;">
-    <div class="col-md-12" role="button" >
+    <div class="col-md-12" role="button">
         <table id="table" class="table table-hover">
             <tr>
                 <th colspan="9" style="background: #2e4053; color:white;">Listado de Requerimientos ...</th>
@@ -190,7 +207,8 @@
                         }
                         <td style="text-align:center;">@oElemento.Dependencia_SN</td>
                         <td>@oElemento.Motivo_Dependencia</td>
-                    </tr> 
+                    </tr>
+
                 }
             }
         </table>
@@ -198,54 +216,27 @@
 
 </div>
 
-<div class="modal fade" id="ventana_requerimiento">
-    <div class="modal-dialog col-md-12">
-        <div class="modal-content" style="width:1500px;">
-            
-            <!--header-->
-            <div class="modal-header">
-                <h4 id="Titulo_Modal"></h4>
-                <button tyle="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-            </div>
-            <!---body-->
-            <div class="modal-body">
-                <p>hola mundo</p>
-                <table class="table" style="border: 2px solid rgb(108 252 9 / 0.75)">
-                    <tr>
-                        <td>Estado</td>
-                        <td id="Estado_Modal">
-                            <select id="Select_Estado_Modal">
-                                <option>New</option>
-                                <option>In Process</option>
-                                <option>Done</option>
-                            </select>
-                        </td>
-                        <td>Area</td>
-                        <td id="Area_Modal"></td>
-                    </tr>
-                    <tr>
-                        <td>state</td>
-                        <td>state</td>
-                        <td>state</td>
-                        <td>state</td>
-                        <td>state</td>
-                    </tr>
-                    <tr>
-                        <td>state</td>
-                        <td>state</td>
-                    </tr>
-                    <tr>
-                        <frame>
+<div class="modal fade" id="ventana_requerimiento" tabindex="-1">
 
-                        </frame>
-                    </tr>
-                </table> 
+
+    <div class="modal-dialog" style="height:90%;">
+        <div class="modal-content" style="width:1500px; margin-left:-500px; height:90%;">
+            <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                <h4 id="Titulo_Modal"></h4>
+                <input id="Titulo_Modal" class="form-control"  type="text" />
+
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
             </div>
-            <!--footer-->
+            <div class="modal-body">
+                <p>El texto del cuerpo modal va aquí.</p>
+            </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
-                <button type="button" class="btn btn-primary">Guardar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary">Guardar cambios</button>
             </div>
         </div>
-    </div>
+    </div>    
+    
+
 </div>
