@@ -174,7 +174,7 @@ namespace PG2.Controllers
                 modelAR.Area_Requerimiento = oTablaR.Area_Requerimiento;
 
 
-
+                ViewData["Titulo_req"] = oTabla.Nombre_Requerimiento;
 
             }
                 return View(modelAR);
